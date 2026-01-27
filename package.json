@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "devBack": "nodemon ./src/CRUD.js",
     "format": "prettier --write *.js"
   },
   "repository": {
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/Besthings/fullstack-268-S01#readme",
   "devDependencies": {
+    "nodemon": "^3.1.11",
     "prettier": "^3.7.4"
   },
   "dependencies": {
