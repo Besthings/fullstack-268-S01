@@ -9,9 +9,9 @@ var bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 
-// Base URL for the API
+// Base URL for the API Backend
 //const base_url = "https://api.example.com";
-const base_url = "http://localhost:5000";
+const base_url = "http://localhost:3000";
 // const base_url = "https://node85485-fs-natchanon.proen.app.ruk-com.cloud/";
 
 // Set the template engine
