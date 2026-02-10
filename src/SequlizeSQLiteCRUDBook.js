@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const Sequelize = require('sequelize')
 const app = express()
@@ -7,7 +9,11 @@ app.use(express.json())
 const sequelize = new Sequelize('database', 'username', 'password', {
     host: 'localhost',
     dialect: 'sqlite',
-    storage: './Database/SQBooks.sqlite'
+    storage: './Database/Books.sqlite'
+})
+
+app.get('/', (req, res) => {
+    res.send('MAX natchanon')
 })
 
 const Book = sequelize.define('book', {
@@ -27,10 +33,6 @@ const Book = sequelize.define('book', {
 })
 
 sequelize.sync()
-
-app.get('/', (req, res) => {
-    res.send('MAX natchanon')
-})
 
 app.get('/books', (req, res) => {
     Book.findAll().then(book => {
@@ -53,7 +55,7 @@ app.get('/books/:id', (req, res) => {
 })
 
 app.post('/books', (req, res) => {
-    Book.Create(req.body).then(book => {
+    Book.create(req.body).then(book => {
         res.json(book);
     }).catch(err => {
         res.status(500).send(err)
