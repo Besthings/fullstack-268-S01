@@ -2,6 +2,7 @@
 // Description: Node.js HTML client
 // requires: npm install express ejs axios body-parser
 
+require('dotenv').config()
 const express = require("express");
 const axios = require("axios");
 var bodyParser = require("body-parser");
@@ -10,8 +11,8 @@ const app = express();
 
 // Base URL for the API
 //const base_url = "https://api.example.com";
-// const base_url = "http://localhost:5000";
-const base_url = "https://node85485-fs-natchanon.proen.app.ruk-com.cloud/";
+const base_url = "http://localhost:5000";
+// const base_url = "https://node85485-fs-natchanon.proen.app.ruk-com.cloud/";
 
 // Set the template engine
 app.set("views", path.join(__dirname, "/public/views"));
@@ -88,6 +89,7 @@ app.get("/delete/:id", async (req, res) => {
   }
 });
 
-app.listen(5500, () => {
-  console.log("Server started on port 5500 || http://localhost:5500");
+const port = process.env.PORT || 8080; 
+app.listen(port, () => {
+  console.log(`Frontend started on port ${port}`);
 });
